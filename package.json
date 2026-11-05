@@ -1,0 +1,12 @@
+{
+  "name": "voice-pine-test",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "openai": "^5.20.0"
+  }
+}

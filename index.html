@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff1f5">
+<meta name="description" content="내가 좋아하는 목소리에는 어떤 공통점이 있을까? 목소리 취향 소나무 테스트">
+<title>목소리 취향 소나무 테스트</title>
+<style>
+:root{--pink:#f6c9d7;--pink2:#ffe8ef;--ink:#51414a;--muted:#8d7b84;--green:#688b79;--cream:#fffaf7;--line:#f0dce3}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#fff4f7,#f8f5ff 55%,#f4fbf6);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:28px 16px 60px}.hero{text-align:center;padding:24px 12px 18px}.pine{font-size:42px}.eyebrow{letter-spacing:.16em;font-size:11px;color:#b27c91;font-weight:800}.hero h1{font-size:clamp(27px,6vw,40px);line-height:1.25;margin:10px 0 8px}.hero p{color:var(--muted);line-height:1.7;margin:0}
+.card{background:#ffffffdc;border:1px solid #fff;border-radius:24px;padding:22px;margin:16px 0;box-shadow:0 12px 35px #9a718515}
+label,.label{font-weight:800;display:block;margin:0 0 9px}.hint{font-size:13px;color:var(--muted);line-height:1.6;margin:6px 0 14px}
+input[type=text],textarea,select{width:100%;border:1px solid var(--line);border-radius:14px;padding:14px;background:#fffdfd;color:var(--ink);font:inherit;outline:none}
+textarea{min-height:116px;resize:vertical;line-height:1.7}input:focus,textarea:focus,select:focus{border-color:#d89caf;box-shadow:0 0 0 3px #fbe5ec}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.choice{display:flex;gap:9px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:14px;margin:8px 0;background:#fff}
+.choice input{accent-color:#c77e99;margin-top:4px}.count{font-size:12px;color:var(--muted);text-align:right;margin-top:6px}
+button{border:0;border-radius:999px;padding:15px 22px;font:inherit;font-weight:850;cursor:pointer}
+.primary{width:100%;background:linear-gradient(100deg,#e9aebe,#c9b8e8);color:#fff;box-shadow:0 8px 20px #d8aabd55}
+.primary:disabled{opacity:.55;cursor:wait}.secondary{background:#fff0f4;color:#9c6278;padding:10px 16px;font-size:13px}
+.status{display:none;margin-top:14px;padding:13px 15px;border-radius:14px;background:#fff3f6;color:#93677a;line-height:1.6;font-size:14px}
+.result{display:none;white-space:pre-wrap;line-height:1.85;overflow-wrap:anywhere}.result h2{margin-top:0}
+.card-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.small{font-size:12px;color:var(--muted);line-height:1.6;text-align:center;margin-top:22px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.card{padding:18px}.wrap{padding:18px 12px 45px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="hero">
+  <div class="pine">🌲💗</div><div class="eyebrow">VOICE PINE TEST</div>
+  <h1>목소리 취향<br>소나무 테스트</h1>
+  <p>내가 좋아하는 목소리에는<br>어떤 공통점이 숨어 있을까?</p>
+</header>
+
+<section class="card">
+  <label for="nickname">닉네임 <span style="font-weight:400;color:#aa929c">(선택)</span></label>
+  <input id="nickname" type="text" maxlength="30" placeholder="예: 목소리 수집가">
+</section>
+
+<section class="card">
+  <div class="grid">
+    <div>
+      <label for="domestic">🇰🇷 국내 최애 목소리</label>
+      <p class="hint">가수, 배우, 아이돌, 성우, 캐릭터 등 이름을 입력해 줘.</p>
+      <textarea id="domestic" placeholder="예시&#10;엄상현&#10;김종엽&#10;캐릭터 이름 (작품명)"></textarea>
+      <div class="count" id="domesticCount">0명</div>
+    </div>
+    <div>
+      <label for="international">🌎 해외 최애 목소리</label>
+      <p class="hint">해외 성우, 배우, 가수, 캐릭터도 좋아!</p>
+      <textarea id="international" placeholder="예시&#10;성우 이름&#10;캐릭터 이름 (작품명)"></textarea>
+      <div class="count" id="internationalCount">0명</div>
+    </div>
+  </div>
+  <p class="hint">※ 한 줄에 한 명씩 입력해 줘. 국내·해외 합계 3~10명까지 가능해.</p>
+</section>
+
+<section class="card">
+  <span class="label">어떤 부분을 집중해서 분석할까?</span>
+  <label class="choice"><input type="radio" name="mode" value="full" checked><span><b>전체 분석</b><br><small>음색 + 발성 + 말투 + 연기</small></span></label>
+  <label class="choice"><input type="radio" name="mode" value="voice"><span><b>목소리와 평소 말투</b><br><small>음색, 울림, 호흡, 발성, 말투 중심</small></span></label>
+  <label class="choice"><input type="radio" name="mode" value="acting"><span><b>연기 스타일과 캐릭터 보이스</b><br><small>배역별 목소리, 감정 표현, 연기 중심</small></span></label>
+</section>
+
+<section class="card">
+  <button class="primary" id="analyze">내 목소리 취향 분석하기 🌲</button>
+  <div class="status" id="status" role="status"></div>
+  <p class="hint" style="margin:12px 2px 0">분석에는 AI가 공개된 웹 자료를 참고해요. 자료가 부족한 인물은 추측하지 않고 표시합니다.</p>
+</section>
+
+<section class="card result" id="resultCard">
+  <h2>🌷 나의 소나무 분석 결과</h2>
+  <div id="resultText"></div>
+  <div class="card-actions">
+    <button class="secondary" id="copy">결과 복사</button>
+    <button class="secondary" id="save">결과 카드 이미지 저장</button>
+  </div>
+  <canvas id="canvas" width="1080" height="1350" hidden></canvas>
+</section>
+<p class="small">이 테스트는 재미를 위한 취향 분석이며, 목소리 취향을 과학적으로 측정하는 검사는 아닙니다.<br>입력한 이름은 이 사이트에 저장하지 않으며 분석 요청 시 AI 서비스로 전송됩니다.</p>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+function lines(id){return $(id).value.split(/\n|,/).map(x=>x.trim()).filter(Boolean);}
+function updateCounts(){
+  $("domesticCount").textContent = lines("domestic").length + "명";
+  $("internationalCount").textContent = lines("international").length + "명";
+}
+$("domestic").addEventListener("input",updateCounts);
+$("international").addEventListener("input",updateCounts);
+let latest = "";
+$("analyze").addEventListener("click", async () => {
+  const domestic=lines("domestic"), international=lines("international");
+  const total=domestic.length+international.length;
+  if(total<3||total>10){$("status").style.display="block";$("status").textContent="국내·해외 합계 3~10명을 입력해 줘!";return;}
+  const button=$("analyze");button.disabled=true;button.textContent="목소리 취향 분석 중... 🌱";
+  $("status").style.display="block";$("status").textContent="공개된 음성 자료를 확인하고 있어. 잠시만 기다려 줘!";
+  $("resultCard").style.display="none";
+  try{
+    const mode=document.querySelector('input[name="mode"]:checked').value;
+    const response=await fetch("/api/analyze",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({domestic,international,mode})});
+    const data=await response.json();
+    if(!response.ok)throw new Error(data.error||"분석에 실패했어요.");
+    latest=(($("nickname").value.trim())?$("nickname").value.trim()+"님의 목소리 취향\n\n":"")+data.result;
+    $("resultText").textContent=latest;
+    $("resultCard").style.display="block";
+    $("status").textContent="분석이 끝났어! 아래 결과를 확인해 봐 💗";
+    $("resultCard").scrollIntoView({behavior:"smooth",block:"start"});
+  }catch(e){$("status").textContent=e.message||"오류가 발생했어요. 다시 시도해 주세요.";}
+  finally{button.disabled=false;button.textContent="내 목소리 취향 분석하기 🌲";}
+});
+$("copy").addEventListener("click",async()=>{if(!latest)return;try{await navigator.clipboard.writeText(latest);$("copy").textContent="복사 완료!";}catch{$("copy").textContent="복사할 수 없어요";}setTimeout(()=>$("copy").textContent="결과 복사",1800);});
+$("save").addEventListener("click",()=>{
+  if(!latest)return;
+  const c=$("canvas"),ctx=c.getContext("2d");
+  const g=ctx.createLinearGradient(0,0,1080,1350);g.addColorStop(0,"#fff0f5");g.addColorStop(1,"#f0f5ff");ctx.fillStyle=g;ctx.fillRect(0,0,1080,1350);
+  ctx.fillStyle="#668675";ctx.font="bold 54px sans-serif";ctx.fillText("VOICE PINE TEST",80,115);
+  ctx.fillStyle="#51414a";ctx.font="bold 64px sans-serif";ctx.fillText("목소리 취향 소나무 테스트",80,205);
+  ctx.fillStyle="#c17e99";ctx.font="48px sans-serif";ctx.fillText("🌲  나의 취향 분석 결과",80,285);
+  ctx.fillStyle="#51414a";ctx.font="34px sans-serif";
+  const maxWidth=920,lineHeight=54;let y=375;
+  const paragraphs=latest.split("\n");
+  for(const p of paragraphs){
+    if(!p.trim()){y+=20;continue;}
+    let line="";
+    for(const ch of p){
+      const test=line+ch;
+      if(ctx.measureText(test).width>maxWidth){ctx.fillText(line,80,y);y+=lineHeight;line=ch;if(y>1220)break;}else line=test;
+    }
+    if(y<=1220){ctx.fillText(line,80,y);y+=lineHeight;}
+    if(y>1220)break;
+  }
+  ctx.fillStyle="#8d7b84";ctx.font="24px sans-serif";ctx.fillText("재미를 위한 취향 분석 결과",80,1290);
+  const a=document.createElement("a");a.download="voice-pine-result.png";a.href=c.toDataURL("image/png");a.click();
+});
+</script>
+</body>
+</html>
